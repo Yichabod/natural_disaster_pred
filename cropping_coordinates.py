@@ -1,6 +1,6 @@
 import math
 
-# Distances are measured in miles.
+# Distances are measured in kilometers.
 # Longitudes and latitudes are measured in degrees.
 # Earth is assumed to be perfectly spherical.
 
@@ -19,9 +19,9 @@ def change_in_longitude(latitude, kms):
     return (kms/r)*radians_to_degrees
 
 def ten_km_square(latitude, longitude):
-    slat, nlat = latitude+change_in_latitude(-5), latitude+change_in_latitude(5)
-    wlon = longitude+change_in_longitude(latitude,-5)
-    elon = longitude+change_in_longitude(latitude, 5)
+    slat, nlat = latitude+change_in_latitude(-3.75), latitude+change_in_latitude(3.75)
+    wlon = longitude+change_in_longitude(latitude,-3.75)
+    elon = longitude+change_in_longitude(latitude, 3.75)
     return(nlat, wlon, slat, elon)
 
 def main(lon, lat):
@@ -30,7 +30,10 @@ def main(lon, lat):
         second argument latitude (N positive, S negative),
         in decimal format(not minutes etc.)'''
     nlat, wlon, slat, elon = ten_km_square(lat,lon)
-    print("(NLat:{:.4f},WLon:{:.4f}),(SLat:{:.4f},ELon:{:.4f})".format(nlat, wlon, slat, elon))
+    #print("(NLat:{:.4f},WLon:{:.4f}),(SLat:{:.4f},ELon:{:.4f});".format(nlat, wlon, slat, elon))
+    print("var region = '[[{:.4f},{:.4f}], [{:.4f},{:.4f}], [{:.4f},{:.4f}], [{:.4f},{:.4f}]]';".format(wlon,nlat,elon,nlat,wlon,slat,elon,slat))
+    print("var rectangle = [{:.4f},{:.4f},{:.4f},{:.4f}];".format(wlon,slat,elon,nlat))
 
+#change these to longitude, latitude
+main(18.07769,44.14354)
 
-main(-121.4323838,35.86562803)
