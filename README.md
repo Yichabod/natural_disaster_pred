@@ -7,9 +7,6 @@ Accuracy_plotter.py creates a plot of accuracies during training based on the te
 
 image_download_script.js can be pasted directly into the https://code.earthengine.google.com console and you just have to enter the coordinates of the earthquake into cropping_coordinates.py to get the bounding boxes.
 
-N.B.: To run cross validation train on different values for eval_sessions
-Change the variable from [i for i in range(0,4)] to [i for i in range(4,8)] and so on for 8,12 ->12,16->16,20
-
 
 MIT License
 
